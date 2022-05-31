@@ -1,12 +1,14 @@
-import logo from './logo.svg'
+//import logo from './logo.svg'
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './routes'
 
 export const App = () => {
 
 
   return (
-    <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-    </div>
+    <BrowserRouter>
+      <AppRoutes/>
+    </BrowserRouter>
   )
 }
 
