@@ -9,6 +9,7 @@ export const Dashboard = () => {
       barraDeFerramentas={(
         <DetailToolBox
           showBackSaveButton
+                    
         />
           
       )}

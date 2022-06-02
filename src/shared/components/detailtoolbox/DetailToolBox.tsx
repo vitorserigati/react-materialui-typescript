@@ -1,4 +1,4 @@
-import { Button, Icon, Paper, useTheme, Box, Divider, Skeleton } from '@mui/material';
+import { Button, Icon, Paper, useTheme, Box, Divider, Skeleton, Typography, useMediaQuery, Theme } from '@mui/material';
 
 interface IDetailToolBoxProps{
   textNewButton?: string;
@@ -41,7 +41,10 @@ export const DetailToolBox: React.FC<IDetailToolBoxProps> = ({
   showBackSaveButtonLoading = false,
   showSaveButtonLoading = false
 }) => {
+
   const theme = useTheme();
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   
   return(
     <Box 
@@ -62,20 +65,32 @@ export const DetailToolBox: React.FC<IDetailToolBoxProps> = ({
         onClick={onClickSaveButton}            
         startIcon={<Icon>save</Icon>}
       >
-        Salvar</Button>)}
+        {!smDown && (<Typography variant='button' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+          
+          Salvar
+
+        </Typography>)}
+      
+      </Button>)}
 
       { showSaveButtonLoading && (<Skeleton width={109} height={60}/>)}
 
-      {(showBackSaveButton && !showBackSaveButtonLoading) && (<Button
+      {(showBackSaveButton && !showBackSaveButtonLoading && !smDown && !mdDown) && (<Button
         variant='outlined'
         color='primary'
         disableElevation 
         onClick={onClickBackSaveButton}           
         startIcon={<Icon>save</Icon>}
       >
-        Salvar e Voltar </Button>)}
+        <Typography variant='button' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+          
+          Salvar e Voltar 
 
-      { showBackSaveButtonLoading && (<Skeleton width={179} height={60}/>)}
+        </Typography>
+      
+      </Button>)}
+
+      { (showBackSaveButtonLoading  && !smDown && !mdDown) && (<Skeleton width={179} height={60}/>)}
       
       {(showDeleteButton && !showDeleteButtonLoading) && (<Button
         variant='outlined'
@@ -84,23 +99,37 @@ export const DetailToolBox: React.FC<IDetailToolBoxProps> = ({
         onClick={onClickDeleteButton}            
         startIcon={<Icon>delete</Icon>}
       >
-        Apagar </Button>)}
+        {!smDown && (<Typography variant='button' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+          
+          Apagar 
+
+        </Typography>)}
+      
+      </Button>)}
 
       { showDeleteButtonLoading && (<Skeleton width={112} height={60}/>)}
 
-      {(showNewButton && !showNewButtonLoading) && (<Button
+      {(showNewButton && !showNewButtonLoading && !smDown && !mdDown) && (<Button
         variant='outlined'
         color='primary'
         disableElevation
         onClick={onClickNewButton}            
         startIcon={<Icon>add</Icon>}
       >
-        {textNewButton} </Button>)}
+        <Typography variant='button' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+          
+          {textNewButton} 
 
-      {showNewButtonLoading && (<Skeleton width={97} height={60}/>)}
+        </Typography>
+      
+      </Button>)}
+
+      {(showNewButtonLoading  && !smDown && !mdDown) && (<Skeleton width={97} height={60}/>)}
       
 
-      <Divider variant='middle' orientation='vertical'/>
+      {(showBackButton && (showBackSaveButton || showDeleteButton || showNewButton || showSaveButton)
+      ) && 
+      (<Divider variant='middle' orientation='vertical'/>)}
       
       {(showBackButton && !showBackButtonLoading) && (<Button
         variant='outlined'
@@ -109,7 +138,13 @@ export const DetailToolBox: React.FC<IDetailToolBoxProps> = ({
         onClick={onClickBackButton}            
         startIcon={<Icon>arrow_back</Icon>}
       >
-        Voltar </Button>)}
+        {!smDown && (<Typography variant='button' overflow='hidden' whiteSpace='nowrap' textOverflow='ellipsis'>
+          
+          Voltar 
+
+        </Typography>)}
+      
+      </Button>)}
 
       { showBackButtonLoading && (<Skeleton width={111} height={60}/>)}
 
