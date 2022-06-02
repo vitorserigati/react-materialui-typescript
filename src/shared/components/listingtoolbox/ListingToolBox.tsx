@@ -1,6 +1,6 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 
-interface IToolBoxProps {
+interface IListingToolBoxProps {
   searchText?: string;
   showSearchInput?: boolean;
   changeSearchText?: (newText: string) => void;
@@ -9,7 +9,7 @@ interface IToolBoxProps {
   onNewButtonClick?: () => void;
 }
 
-export const ListingToolBox: React.FC<IToolBoxProps> = ({
+export const ListingToolBox: React.FC<IListingToolBoxProps> = ({
   newButtonText = 'Novo',
   showNewButton = true,
   onNewButtonClick,
