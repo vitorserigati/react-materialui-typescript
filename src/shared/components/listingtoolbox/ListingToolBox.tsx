@@ -1,5 +1,7 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 
+import { Environment } from '../../environment';
+
 interface IListingToolBoxProps {
   searchText?: string;
   showSearchInput?: boolean;
@@ -34,7 +36,7 @@ export const ListingToolBox: React.FC<IListingToolBoxProps> = ({
           size='small'
           value={searchText}
           onChange={(e) => changeSearchText?.(e.target.value)}
-          placeholder= 'Pesquisar...'
+          placeholder= {Environment.INPUT_DE_BUSCA}
           fullWidth        
         />
       )}
