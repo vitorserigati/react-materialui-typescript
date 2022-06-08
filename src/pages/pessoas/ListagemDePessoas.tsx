@@ -10,7 +10,6 @@ import {
   TableFooter,
   TableHead,
   TableRow,
-  Typography,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import { ListingToolBox } from '../../shared/components';
