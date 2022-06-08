@@ -2,14 +2,16 @@
     "pessoas": [
         {           
             "id": 1,
-            "nome": "Vitor",
-            "idade": 29
+            "nomeCompleto": "Vitor",
+            "email": "teste@teste.com",
+            "cidadeId": 1
             
         },
         {           
             "id": 2,
-            "nome": "Mayara",
-            "idade": 20
+            "nomeCompleto": "Mayara",
+            "email": "teste@teste.com",
+            "cidadeId": 1
             
         }
     ]
